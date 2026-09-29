@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#FF4D00] text-black selection:bg-black selection:text-[#FF4D00]">
+    <div className="min-h-screen bg-background text-foreground selection:bg-aimd-purple selection:text-aimd-white">
       <Navbar />
       <Hero />
       <MarqueeSection />

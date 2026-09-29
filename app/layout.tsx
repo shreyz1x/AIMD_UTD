@@ -1,21 +1,33 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist_Mono, Playfair_Display } from "next/font/google"
+import localFont from "next/font/local"
+import { Libre_Baskerville } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+const aileron = localFont({
+  src: [
+    { path: "./fonts/Aileron-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Aileron-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/Aileron-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/Aileron-Heavy.woff2", weight: "800", style: "normal" },
+    { path: "./fonts/Aileron-Heavy.woff2", weight: "900", style: "normal" },
+  ],
+  variable: "--font-aileron-family",
+  display: "swap",
 })
-const _playfair = Playfair_Display({
+
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-libre-family",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Superdesign® | AI Product Designer",
-  description: "Bold brutalist portfolio for AI product design - Strategy, Interface, Development & Branding",
+  title: "AIMD | Artificial Intelligence in Medicine",
+  description: "AIMD at UT Dallas brings students together to work on artificial intelligence and healthcare.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -42,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${_geistMono.variable} ${_playfair.variable}`}>
-      <body className="font-mono antialiased">
+    <html lang="en" className={`${aileron.variable} ${libreBaskerville.variable}`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

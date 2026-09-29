@@ -2,34 +2,48 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
 const team = [
+  { name: "Zaina Ali", role: "President" },
+  { name: "Rakshitha Kishore", role: "Vice-President" },
+  { name: "Jaden Jovan", role: "Director of Technology" },
+  { name: "Srinidhi Vajinepali", role: "Director of Operations" },
+  { name: "Noman Ibrahim", role: "Director of Marketing" },
+  { name: "Akshith Akula", role: "Director of Industry" },
+  { name: "Arnav Mehta", role: "Director of Engineering" },
+]
+
+const domains = [
   {
-    name: "Alex Chen",
-    role: "Creative Director",
-    image: "/creative-director-headshot.png",
+    title: "Machine Learning",
+    description: "Model training, evaluation, optimization, and real-world datasets.",
   },
   {
-    name: "Sarah Miller",
-    role: "Design Lead",
-    image: "/professional-headshot-designer-woman.jpg",
+    title: "Computer Vision & Medical Imaging",
+    description: "Image-based diagnostics, detection models, and visual reasoning.",
   },
   {
-    name: "Marcus Johnson",
-    role: "Tech Lead",
-    image: "/professional-headshot-developer-man.jpg",
+    title: "Large Language Models & AI Agents",
+    description: "LLMs, prompt engineering, RAG systems, and autonomous agents.",
   },
   {
-    name: "Emma Wilson",
-    role: "Strategy Director",
-    image: "/professional-headshot-strategist-woman.jpg",
+    title: "Healthcare & Diagnostic AI",
+    description: "AI for patient intake, triage, decision support, and workflows.",
+  },
+  {
+    title: "Full-Stack AI Systems",
+    description: "AI + backend + frontend + deployment.",
+  },
+  {
+    title: "Research, Ethics & Model Evaluation",
+    description: "Bias, interpretability, safety, and responsible AI.",
   },
 ]
 
-const stats = [
-  { value: "150+", label: "Projects Completed" },
-  { value: "12", label: "Years Experience" },
-  { value: "40+", label: "Team Members" },
-  { value: "25", label: "Awards Won" },
-]
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+}
 
 export default function AboutPage() {
   return (
@@ -37,7 +51,7 @@ export default function AboutPage() {
       <Navbar />
 
       <section className="pt-32 pb-16 px-4 md:px-8">
-        <h1 className="font-serif text-[12vw] md:text-[8vw] leading-[0.85] uppercase tracking-tighter">
+        <h1 className="font-aileron text-[12vw] md:text-[8vw] leading-[0.85] uppercase tracking-tighter">
           About
           <br />
           <span className="text-primary">Us</span>
@@ -47,49 +61,53 @@ export default function AboutPage() {
       <section className="px-4 md:px-8 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <p className="font-serif text-2xl md:text-4xl leading-tight">
-              We are a collective of designers, developers, and strategists who believe in the power of bold ideas.
-            </p>
+            <p className="font-baskerville text-2xl md:text-4xl leading-tight">Transforming Healthcare with AI</p>
           </div>
           <div className="space-y-6">
-            <p className="font-mono text-muted-foreground">
-              Founded in 2012, Superdesign has grown from a small studio into a global creative agency. We work with
-              ambitious brands who aren&apos;t afraid to stand out.
-            </p>
-            <p className="font-mono text-muted-foreground">
-              Our approach combines strategic thinking with experimental design, pushing boundaries while delivering
-              measurable results. We believe great design should challenge, inspire, and transform.
+            <p className="font-baskerville text-muted-foreground">
+              At AIMD at UT Dallas, we bring together students interested in artificial intelligence and healthcare to
+              work on hands-on projects, including industry-sponsored initiatives with real companies, tackling
+              real-world medical challenges through research, innovation, and collaboration.
             </p>
           </div>
         </div>
       </section>
 
       <section className="px-4 md:px-8 pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          {stats.map((stat) => (
-            <div key={stat.label} className="border-2 border-foreground p-6 md:p-8">
-              <span className="font-serif text-4xl md:text-6xl text-primary">{stat.value}</span>
-              <p className="font-mono text-xs uppercase mt-2 text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
+        <h2 className="font-aileron text-4xl md:text-6xl uppercase tracking-tight mb-4">Proven Impact</h2>
+        <p className="font-baskerville text-primary text-xl md:text-2xl mb-12">Through Applied AI</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <div className="border-2 border-border bg-card p-6 md:p-8">
+            <p className="font-baskerville text-muted-foreground">
+              Discover how AIMD empowers students to gain real-world experience at the intersection of artificial
+              intelligence and healthcare through hands-on projects, research, and industry collaboration, preparing
+              for careers in medicine, research, and industry.
+            </p>
+          </div>
+          <div className="border-2 border-border bg-card p-6 md:p-8">
+            <h3 className="font-aileron text-xl uppercase text-primary mb-4">
+              Industry-Sponsored & Real-World Projects
+            </h3>
+            <p className="font-baskerville text-muted-foreground">
+              AIMD partners with companies, research groups, and healthcare-focused organizations to offer
+              industry-sponsored projects where students work on real problems using AI and machine learning. These
+              projects expose members to real data, constraints, and workflows found in professional environments.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="px-4 md:px-8 pb-24">
-        <h2 className="font-serif text-4xl md:text-6xl uppercase tracking-tight mb-12">The Team</h2>
+        <h2 className="font-aileron text-4xl md:text-6xl uppercase tracking-tight mb-12">The Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member) => (
-            <div key={member.name} className="group">
-              <div className="aspect-square overflow-hidden border-2 border-foreground">
-                <img
-                  src={member.image || "/placeholder.svg"}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
+            <div key={member.name} className="group bg-card">
+              <div className="aspect-square overflow-hidden border-2 border-border bg-aimd-black flex items-center justify-center">
+                <span className="font-aileron text-4xl text-primary">{initials(member.name)}</span>
               </div>
               <div className="mt-4">
-                <h3 className="font-serif text-xl uppercase">{member.name}</h3>
-                <p className="font-mono text-xs text-primary uppercase">{member.role}</p>
+                <h3 className="font-aileron text-xl uppercase">{member.name}</h3>
+                <p className="font-baskerville text-xs text-primary uppercase">{member.role}</p>
               </div>
             </div>
           ))}
@@ -97,26 +115,16 @@ export default function AboutPage() {
       </section>
 
       <section className="px-4 md:px-8 pb-24">
-        <div className="bg-foreground text-background p-8 md:p-16">
-          <h2 className="font-serif text-4xl md:text-6xl uppercase tracking-tight">Our Values</h2>
+        <div className="bg-card text-foreground border-2 border-aimd-purple/40 p-8 md:p-16">
+          <h2 className="font-aileron text-4xl md:text-6xl uppercase tracking-tight">What AIMD Works On</h2>
+          <p className="font-baskerville text-muted-foreground mt-4 max-w-xl">
+            The AI domains our members actively build, research, and deploy in.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {[
-              {
-                title: "Bold",
-                description: "We take risks and push boundaries. Safe design is forgettable design.",
-              },
-              {
-                title: "Honest",
-                description: "We tell it like it is. Transparency builds trust and better work.",
-              },
-              {
-                title: "Relentless",
-                description: "We don't stop until it's right. Good enough is never good enough.",
-              },
-            ].map((value) => (
-              <div key={value.title}>
-                <h3 className="font-serif text-2xl text-primary uppercase">{value.title}</h3>
-                <p className="font-mono text-sm mt-4 opacity-70">{value.description}</p>
+            {domains.map((domain) => (
+              <div key={domain.title}>
+                <h3 className="font-aileron text-2xl text-primary uppercase">{domain.title}</h3>
+                <p className="font-baskerville text-sm mt-4 opacity-70">{domain.description}</p>
               </div>
             ))}
           </div>
